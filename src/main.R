@@ -1,6 +1,6 @@
 library(readr)
 dir <- getwd()
-df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep=""), header=TRUE)
+df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep =""), header = TRUE)
 
 #Carga de paquetes a utilizar
 library(caret)
@@ -35,7 +35,7 @@ knn_fit <- train(
   method = "knn",
   trControl = cv,
   tuneGrid = hyper_grid,
-  metric= "RMSE"
+  metric = "RMSE"
 )
 
 # Imprimir y Graficar resultados CV
@@ -43,7 +43,7 @@ knn_fit
 ggplot(knn_fit)
 
 #RMSE was used to select the optimal model using the smallest value.
-#Multiple Linear Regression 
+#Multiple Linear Regression
 
 
 model1 <- lm(MntWines ~ Income + Recency + Year_Birth + MntMeatProducts + NumStorePurchases, 
@@ -79,9 +79,9 @@ set.seed(123) #para reproducibilidad
 ))
 
 # Model 2 CV
-set.seed(123) #para reproducibilidad 
+set.seed(123) #para reproducibilidad
 
-(cv_model2 <-train(
+(cv_model2 <- train(
   form = MntWines ~ Income + Recency + Year_Birth + MntFishProducts + NumStorePurchases,
   data = data_train,
   method = "lm", 
@@ -89,9 +89,9 @@ set.seed(123) #para reproducibilidad
 ))
 
 # Model 3 CV
-set.seed(123) #para reproducibilidad 
+set.seed(123) #para reproducibilidad
 
-(cv_model3 <-train(
+(cv_model3 <- train(
   form = MntWines ~ Income + Year_Birth + MntMeatProducts + NumStorePurchases,
   data = data_train,
   method = "lm", 
@@ -100,9 +100,9 @@ set.seed(123) #para reproducibilidad
 
 
 # Model 4 CV
-set.seed(123) #para reproducibilidad 
+set.seed(123) #para reproducibilidad
 
-(cv_model4 <-train(
+(cv_model4 <- train(
   form = MntWines ~ Income + Year_Birth + MntFishProducts + NumStorePurchases,
   data = data_train,
   method = "lm", 
