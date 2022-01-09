@@ -1,4 +1,6 @@
 # Carga de paquetes a utilizar
+if (!require("dplyr")) install.packages("dplyr")
+library(dplyr)
 library(caret)
 library(rsample)
 library(ggplot2)
@@ -176,8 +178,8 @@ gridExtra::grid.arrange(p1, p2, nrow = 1)
 
 
 #3.	No autocorrelation:
-df1 <- mutate(df1, id=row_number())
-df2 <- mutate(df2, id=row_number())
+df1 <- mutate(df1, id = row_number())
+df2 <- mutate(df2, id = row_number())
 
 p1 <- ggplot(df1, aes(id, .resid)) +
   geom_point(size = 1, alpha = .4) +
