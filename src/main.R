@@ -1,17 +1,16 @@
-library(readr)
-dir <- getwd()
-df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep = ""),
- header = TRUE)
-
 #Carga de paquetes a utilizar
 library(caret)
 library(rsample)
 library(ggplot2)
- 
+library(readr)
+
+#Carga de datos
+dir <- getwd()
+df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep = ""),
+ header = TRUE)
 
 #scale the dataset (normalize data)
 df <- df[, 2:20]
-
 
 #Crear training 70%) y test (30%) sets para la data utilizando rsample package
 set.seed(123)
