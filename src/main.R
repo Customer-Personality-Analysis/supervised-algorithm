@@ -43,9 +43,8 @@ knn_fit # Este codigo puede durar mucho tiempo ejecutandose
 ggplot(knn_fit)
 
 #RMSE was used to select the optimal model using the smallest value.
+
 #Multiple Linear Regression
-
-
 model1 <- lm(MntWines ~ Income + Recency + Year_Birth +
  MntMeatProducts + NumStorePurchases,
           data = data_train)
@@ -62,19 +61,17 @@ model4 <- lm(MntWines ~ Income + Year_Birth +
 MntMeatProducts + NumStorePurchases,
               data = data_train)
 
-
 summary(model1)
 summary(model2)
 summary(model3)
 summary(model4)
 
-
 # Evaluacion de la precision del modelo
 # Entrenamiento del modelo mediante una validacin cruzada 10-fold
 
+
 # Model 1 CV
 set.seed(123) #para reproducibilidad
-
 (cv_model1 <- train(
   form = MntWines ~ Income + Recency + Year_Birth + MntMeatProducts
    + NumStorePurchases,
@@ -85,7 +82,6 @@ set.seed(123) #para reproducibilidad
 
 # Model 2 CV
 set.seed(123) #para reproducibilidad
-
 (cv_model2 <- train(
   form = MntWines ~ Income + Recency + Year_Birth + MntFishProducts
   + NumStorePurchases,
@@ -96,7 +92,6 @@ set.seed(123) #para reproducibilidad
 
 # Model 3 CV
 set.seed(123) #para reproducibilidad
-
 (cv_model3 <- train(
   form = MntWines ~ Income + Year_Birth + MntMeatProducts + NumStorePurchases,
   data = data_train,
@@ -104,17 +99,14 @@ set.seed(123) #para reproducibilidad
   trControl = trainControl(method = "cv", number = 10)
 ))
 
-
 # Model 4 CV
 set.seed(123) #para reproducibilidad
-
 (cv_model4 <- train(
   form = MntWines ~ Income + Year_Birth + MntFishProducts + NumStorePurchases,
   data = data_train,
   method = "lm",
   trControl = trainControl(method = "cv", number = 10)
 ))
-
 
 summary(resamples(list(
   model1 = cv_model1,
