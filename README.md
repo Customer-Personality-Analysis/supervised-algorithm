@@ -1,21 +1,21 @@
-# Supervised Algorithm
+# Algoritmos Supervisado
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](/README.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](/README.en.md)
 
-## Customer Personality Analisys
-### Description
-Customer Personality Analysis is a detailed analysis of a company’s ideal customers. It helps a business to better understand its customers and makes it easier for them to modify products according to the specific needs, behaviors and concerns of different types of customers.
+## Análisis de la personalidad del cliente
+### Descripción
+El análisis de la personalidad del cliente es un análisis detallado de los clientes ideales de una empresa. Ayuda a una empresa a comprender mejor a sus clientes y les facilita la modificación de productos de acuerdo con las necesidades, los comportamientos y las preocupaciones específicas de los diferentes tipos de clientes.
 
-Customer personality analysis helps a business to modify its product based on its target customers from different types of customer segments. For example, instead of spending money to market a new product to every customer in the company’s database, a company can analyze which customer segment is most likely to buy the product and then market the product only on that particular segment.
+El análisis de la personalidad del cliente ayuda a una empresa a modificar su producto en función de sus clientes objetivo de diferentes tipos de segmentos de clientes. Por ejemplo, en lugar de gastar dinero para comercializar un nuevo producto para cada cliente en la base de datos de la empresa, una empresa puede analizar qué segmento de clientes es más probable que compre el producto y luego comercializar el producto solo en ese segmento en particular.
 
-### Exercise
-To focus the advertising campaign based on the purchase profile of consumers, it is necessary to _know the probabilities_ of purchasing the product so that offers can be targeted and advertising campaigns based on these results.
+### Ejercicio
+Se debe enfocar la campaña publicitaria en función del perfil de compra de los consumidores, es necesario _conocer las probabilidades_ de compra del producto para que las ofertas puedan ser focalizadas y asi realizar campañas publicitarias basadas en estos resultados.
 
-### Algorithm
-Algorithms use in this project are:
+### Algoritmo
+Los algoritmos utilizado en este proyecto son:
 
     - Multiple Lineal Regression [lm]
     - Knn
     - cv
 
-#### Context References in [Kaggle](https://www.kaggle.com/imakash3011customer-personality-analysis)
+#### Referencia del ejercicio en la plataforma de [Kaggle](https://www.kaggle.com/imakash3011customer-personality-analysis)
