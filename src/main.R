@@ -94,7 +94,7 @@ set.seed(123) #para reproducibilidad
 (cv_model3 <- train(
   form = MntWines ~ Income + Year_Birth + MntMeatProducts + NumStorePurchases,
   data = data_train,
-  method = "lm", 
+  method = "lm",
   trControl = trainControl(method = "cv", number = 10)
 ))
 
@@ -105,7 +105,7 @@ set.seed(123) #para reproducibilidad
 (cv_model4 <- train(
   form = MntWines ~ Income + Year_Birth + MntFishProducts + NumStorePurchases,
   data = data_train,
-  method = "lm", 
+  method = "lm",
   trControl = trainControl(method = "cv", number = 10)
 ))
 
@@ -116,5 +116,3 @@ summary(resamples(list(
   model3 = cv_model3,
   model4 = cv_model4
 )))
-
-
