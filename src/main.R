@@ -46,16 +46,20 @@ ggplot(knn_fit)
 #Multiple Linear Regression
 
 
-model1 <- lm(MntWines ~ Income + Recency + Year_Birth + MntMeatProducts + NumStorePurchases, 
+model1 <- lm(MntWines ~ Income + Recency + Year_Birth +
+ MntMeatProducts + NumStorePurchases,
           data = data_train)
 
-model2 <- lm(MntWines ~ Income + Recency + Year_Birth + MntFishProducts + NumStorePurchases, 
+model2 <- lm(MntWines ~ Income + Recency + Year_Birth +
+ MntFishProducts + NumStorePurchases,
              data = data_train)
 
-model3 <- lm (MntWines ~ Income + Year_Birth + MntFishProducts + NumStorePurchases, 
+model3 <- lm (MntWines ~ Income + Year_Birth +
+ MntFishProducts + NumStorePurchases,
              data = data_train)
 
-model4 <- lm (MntWines ~ Income + Year_Birth + MntMeatProducts + NumStorePurchases, 
+model4 <- lm (MntWines ~ Income + Year_Birth +
+MntMeatProducts + NumStorePurchases,
               data = data_train)
 
 
@@ -65,14 +69,15 @@ summary(model3)
 summary(model4)
 
 
-#Evaluaci�n de la precisi�n del modelo 
-# Entrenamiento del modelo mediante una validaci�n cruzada 10-fold 
+#Evaluaci�n de la precisi�n del modelo
+# Entrenamiento del modelo mediante una validaci�n cruzada 10-fold
 
 # Model 1 CV
-set.seed(123) #para reproducibilidad 
+set.seed(123) #para reproducibilidad
 
-(cv_model1 <-train(
-  form = MntWines ~ Income + Recency + Year_Birth + MntMeatProducts + NumStorePurchases,
+(cv_model1 <- train(
+  form = MntWines ~ Income + Recency + Year_Birth + MntMeatProducts
+   + NumStorePurchases,
   data = data_train,
   method = "lm", 
   trControl = trainControl(method = "cv", number = 10)
@@ -82,9 +87,10 @@ set.seed(123) #para reproducibilidad
 set.seed(123) #para reproducibilidad
 
 (cv_model2 <- train(
-  form = MntWines ~ Income + Recency + Year_Birth + MntFishProducts + NumStorePurchases,
+  form = MntWines ~ Income + Recency + Year_Birth + MntFishProducts
+  + NumStorePurchases,
   data = data_train,
-  method = "lm", 
+  method = "lm",
   trControl = trainControl(method = "cv", number = 10)
 ))
 
