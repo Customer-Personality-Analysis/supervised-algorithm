@@ -40,7 +40,7 @@ knn_fit <- train(
 )
 
 # Imprimir y Graficar resultados CV
-knn_fit
+knn_fit # Este codigo puede durar mucho tiempo ejecutandose
 ggplot(knn_fit)
 
 #RMSE was used to select the optimal model using the smallest value.
