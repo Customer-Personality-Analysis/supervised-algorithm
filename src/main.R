@@ -1,6 +1,7 @@
 library(readr)
 dir <- getwd()
-df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep =""), header = TRUE)
+df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep = ""),
+ header = TRUE)
 
 #Carga de paquetes a utilizar
 library(caret)
@@ -69,8 +70,8 @@ summary(model3)
 summary(model4)
 
 
-#Evaluaci�n de la precisi�n del modelo
-# Entrenamiento del modelo mediante una validaci�n cruzada 10-fold
+# Evaluacion de la precision del modelo
+# Entrenamiento del modelo mediante una validacin cruzada 10-fold
 
 # Model 1 CV
 set.seed(123) #para reproducibilidad
@@ -79,7 +80,7 @@ set.seed(123) #para reproducibilidad
   form = MntWines ~ Income + Recency + Year_Birth + MntMeatProducts
    + NumStorePurchases,
   data = data_train,
-  method = "lm", 
+  method = "lm",
   trControl = trainControl(method = "cv", number = 10)
 ))
 
