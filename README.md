@@ -14,7 +14,7 @@ Se debe enfocar la campaña publicitaria en función del perfil de compra de los
 ### Algoritmo
 Los algoritmos utilizado en este proyecto son:
 
-    - Multiple Lineal Regression [lm]
+    - Regresión Lineal Múltiple [rlm]
     - Knn
     - cv
 
