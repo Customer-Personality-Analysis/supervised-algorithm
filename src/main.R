@@ -1,44 +1,46 @@
 library(readr)
-setwd <-('C:\\Users\\lvrij\\OneDrive\\Desktop\\FID project')
-df <- read.csv('C:\\Users\\lvrij\\OneDrive\\Desktop\\FID project\\FID_project2.csv')
+dir <- getwd()
+df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep=""), header=TRUE)
 
-#Carga de paquetes a utilizar 
+#Carga de paquetes a utilizar
 library(caret)
 library(rsample)
 library(ggplot2)
  
 
 #scale the dataset (normalize data)
-df<- df[,2:20]
+df <- df[, 2:20]
 
 
-#Crear training 70%) y test (30%) sets para la data utilizando rsample package 
+#Crear training 70%) y test (30%) sets para la data utilizando rsample package
 set.seed(123)
 data_split <- initial_split(df, prop = .7, strata = "MntWines")
 data_train <- training(data_split)
 data_test <- testing(data_split)
 
-#Definicion de strategia de rsampling - Utilizando 10-fold cv repetido 5 veces 
+#Definicion de strategia de rsampling - Utilizando 10-fold cv repetido 5 veces
 cv <- trainControl(
   method = "repeatedcv",
   number = 10,
   repeats = 5
 )
-#Crear grid de valores de hiperparametros 
+
+#Crear grid de valores de hiperparametros
 hyper_grid <- expand.grid(k = seq(2, 25, by = 1))
 
 #Utilizando grid search, estimar modelo knn
 knn_fit <- train(
   MntWines ~ .,
-  data = data_train, 
+  data = data_train,
   method = "knn",
   trControl = cv,
   tuneGrid = hyper_grid,
   metric= "RMSE"
 )
+
 # Imprimir y Graficar resultados CV
 knn_fit
-ggplot(knn_fit) 
+ggplot(knn_fit)
 
 #RMSE was used to select the optimal model using the smallest value.
 #Multiple Linear Regression 
@@ -63,8 +65,8 @@ summary(model3)
 summary(model4)
 
 
-#Evaluación de la precisión del modelo 
-# Entrenamiento del modelo mediante una validación cruzada 10-fold 
+#Evaluaciï¿½n de la precisiï¿½n del modelo 
+# Entrenamiento del modelo mediante una validaciï¿½n cruzada 10-fold 
 
 # Model 1 CV
 set.seed(123) #para reproducibilidad 
