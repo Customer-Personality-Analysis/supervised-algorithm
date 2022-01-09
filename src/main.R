@@ -55,11 +55,11 @@ model2 <- lm(MntWines ~ Income + Recency + Year_Birth +
  MntFishProducts + NumStorePurchases,
              data = data_train)
 
-model3 <- lm (MntWines ~ Income + Year_Birth +
+model3 <- lm(MntWines ~ Income + Year_Birth +
  MntFishProducts + NumStorePurchases,
              data = data_train)
 
-model4 <- lm (MntWines ~ Income + Year_Birth +
+model4 <- lm(MntWines ~ Income + Year_Birth +
 MntMeatProducts + NumStorePurchases,
               data = data_train)
 
