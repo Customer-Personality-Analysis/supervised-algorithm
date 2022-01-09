@@ -1,34 +1,34 @@
-#Carga de paquetes a utilizar
+# Carga de paquetes a utilizar
 library(caret)
 library(rsample)
 library(ggplot2)
 library(readr)
 
-#Carga de datos
+# Carga de datos
 dir <- getwd()
 df <- read.csv(paste(dir, "/data/marketing_campaign.csv", sep = ""),
  header = TRUE)
 
-#scale the dataset (normalize data)
+# Scale the dataset (normalize data)
 df <- df[, 2:20]
 
-#Crear training 70%) y test (30%) sets para la data utilizando rsample package
+# Crear training 70%) y test (30%) sets para la data utilizando rsample package
 set.seed(123)
 data_split <- initial_split(df, prop = .7, strata = "MntWines")
 data_train <- training(data_split)
 data_test <- testing(data_split)
 
-#Definicion de strategia de rsampling - Utilizando 10-fold cv repetido 5 veces
+# Definicion de strategia de rsampling - Utilizando 10-fold cv repetido 5 veces
 cv <- trainControl(
   method = "repeatedcv",
   number = 10,
   repeats = 5
 )
 
-#Crear grid de valores de hiperparametros
+# Crear grid de valores de hiperparametros
 hyper_grid <- expand.grid(k = seq(2, 25, by = 1))
 
-#Utilizando grid search, estimar modelo knn
+# Utilizando grid search, estimar modelo knn
 knn_fit <- train(
   MntWines ~ .,
   data = data_train,
